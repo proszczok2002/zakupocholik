@@ -19,7 +19,14 @@ Klawisz `4` na OLX i Vinted przechodzi do kolejnego tytułu oferty. Na Allegro L
 | `NVDA+Alt+S` | Przenosi do wyszukiwarki ofert. |
 | `NVDA+Alt+O` | Na liście odczytuje informacje o ofercie. Na otwartej ofercie pokazuje tytuł i opis sprzedającego. Przycisk **Skopiuj** kopiuje oba do schowka. |
 | `NVDA+Alt+B` | Wraca do tytułu ostatnio otwartej oferty na tej samej liście. |
-| `NVDA+Alt+W` | Odczytuje liczbę wyników, gdy strona ją udostępnia. |
+| `NVDA+Alt+W` | Powtarza liczbę wyników, gdy portal ją podaje. Liczba jest odczytywana także po zastosowaniu filtrów. |
+| `NVDA+Shift+Alt+L` | Otwiera ulubione listy wyników z zapisanymi filtrami. |
+
+## Ulubione listy
+
+Na liście OLX, Vinted lub Allegro Lokalnie ustaw filtry i naciśnij `NVDA+Shift+Alt+L`. Wybierz **Zapisz bieżącą listę do ulubionych** i nadaj jej nazwę, np. „ThinkPad do 1000 zł”.
+
+Ten sam skrót działa również przy zamkniętej przeglądarce. Wybierz listę z zapisanych wyników i naciśnij `Enter`, żeby otworzyć ją w domyślnej przeglądarce Windows. W oknie możesz też zmienić nazwę lub usunąć listę. Ulubione są zapisane lokalnie w konfiguracji NVDA.
 
 ## Ustawianie filtrów
 
