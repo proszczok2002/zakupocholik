@@ -28,6 +28,8 @@ Na liście OLX, Vinted lub Allegro Lokalnie ustaw filtry i naciśnij `NVDA+Shift
 
 Ten sam skrót działa również przy zamkniętej przeglądarce. Wybierz listę z zapisanych wyników i naciśnij `Enter`, żeby otworzyć ją w domyślnej przeglądarce Windows. W oknie możesz też zmienić nazwę lub usunąć listę. Ulubione są zapisane lokalnie w konfiguracji NVDA.
 
+Gdy bieżąca lista jest już w ulubionych, okno od razu ją zaznacza. Przycisk zapisu jest dostępny dla nowych list i wraca po usunięciu pozycji z ulubionych.
+
 ## Ustawianie filtrów
 
 1. Na liście ofert naciśnij `NVDA+Alt+F`.
