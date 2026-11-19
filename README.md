@@ -1,9 +1,40 @@
 # Zakupocholik
 
-Zakupocholik to polski dodatek do NVDA dla Chrome i Firefoksa. Pomaga przeglądać oferty na OLX, Vinted i Allegro Lokalnie. Naciśnij **NVDA+Alt+F** na liście ofert, żeby przejść do filtrów bieżącej strony.
+Zakupocholik to polski dodatek do NVDA dla Google Chrome i Firefoksa. Ułatwia przeglądanie ofert, czytanie opisów i ustawianie filtrów na OLX, Vinted i Allegro Lokalnie.
 
-[Pobierz najnowszą wersję Zakupocholika](https://github.com/proszczok2002/zakupocholik/releases/latest)
+## Pobieranie i instalacja
 
-Otwórz plik `.nvda-addon`, potwierdź instalację i uruchom NVDA ponownie. Pomoc znajdziesz w menu **NVDA → Narzędzia → Zakupocholik → Instrukcja i skróty**.
+1. [Pobierz najnowszą wersję Zakupocholika](https://github.com/proszczok2002/zakupocholik/releases/latest).
+2. Otwórz plik `.nvda-addon`, potwierdź instalację i uruchom NVDA ponownie.
 
-Automatyczne aktualizacje pochodzą z [oficjalnej strony Zakupocholika](https://proszczok.pl/zakupocholik/).
+Do działania potrzebujesz NVDA 2026.1 lub nowszej. Pełna pomoc jest też dostępna bez internetu w menu **NVDA → Narzędzia → Zakupocholik → Instrukcja i skróty**.
+
+## Przeglądanie ofert
+
+Klawisz `4` na OLX i Vinted przechodzi do kolejnego tytułu oferty. Na Allegro Lokalnie użyj `3`. Dodaj `Shift`, żeby wrócić do poprzedniego tytułu. Na otwartej ofercie Vinted `1` prowadzi do tytułu, a `2` do kolejnych sekcji, takich jak cena, opis i dane sprzedającego.
+
+| Skrót | Działanie |
+| --- | --- |
+| `NVDA+Alt+F` | Otwiera filtry bieżącej listy. |
+| `NVDA+Alt+S` | Przenosi do wyszukiwarki ofert. |
+| `NVDA+Alt+O` | Na liście odczytuje informacje o ofercie. Na otwartej ofercie pokazuje tytuł i opis sprzedającego. Przycisk **Skopiuj** kopiuje oba do schowka. |
+| `NVDA+Alt+B` | Wraca do tytułu ostatnio otwartej oferty na tej samej liście. |
+| `NVDA+Alt+W` | Odczytuje liczbę wyników, gdy strona ją udostępnia. |
+
+## Ustawianie filtrów
+
+1. Na liście ofert naciśnij `NVDA+Alt+F`.
+2. W oknie Zakupocholika użyj `Tab`, żeby przejść między polami. W grupie **Stan przedmiotu** przejdź do listy opcji, wybierz pozycje strzałkami i zaznacz spacją jeden lub kilka stanów.
+3. Wybierz **Zastosuj filtry**, żeby wczytać wyniki. `Esc` anuluje zmiany.
+
+- **OLX** – w oknie ustawisz cenę, stan przedmiotu, „Tylko z przesyłką” i „Tylko ze zdjęciem”, zależnie od bieżącej listy.
+- **Vinted** – w oknie ustawisz cenę, stan i sortowanie. Dodatkowe stany, takie jak „Nie w pełni sprawny”, zależą od kategorii.
+- **Allegro Lokalnie** – okno pokazuje filtry danej listy, takie jak stan, marka, cena i miejscowość. Gdy jest dostępna, grupa **Stan przedmiotu** jest od razu wybrana. W polu **Szukaj w opcjach grupy** możesz wpisać fragment nazwy.
+
+Na OLX i Vinted przycisk **Przejdź do filtrów na stronie** prowadzi do pozostałych opcji.
+
+## Aktualizacje i zgłoszenia
+
+Aktualizacje są pobierane ze [strony Zakupocholika](https://proszczok.pl/zakupocholik/). Aby sprawdzić je ręcznie, wybierz w NVDA **Narzędzia → Zakupocholik → Sprawdź aktualizacje**. Przed pobraniem dodatek pokazuje opis zmian.
+
+Problemy i propozycje możesz przekazać autorowi z menu **Narzędzia → Zakupocholik → Zgłoś błąd lub propozycję**.
