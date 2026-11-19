@@ -21,12 +21,13 @@ Klawisz `4` na OLX i Vinted przechodzi do kolejnego tytułu oferty. Na Allegro L
 | `NVDA+Alt+B` | Wraca do tytułu ostatnio otwartej oferty na tej samej liście. |
 | `NVDA+Alt+W` | Powtarza liczbę wyników, gdy portal ją podaje. Liczba jest odczytywana także po zastosowaniu filtrów. |
 | `NVDA+Shift+Alt+L` | Otwiera ulubione listy wyników z zapisanymi filtrami. |
+| `NVDA+Shift+Alt+W` | Otwiera listę wczytanych ofert. Strzałki przechodzą po ofertach, a Enter otwiera wybraną. |
 
 ## Ulubione listy
 
 Na liście OLX, Vinted lub Allegro Lokalnie ustaw filtry i naciśnij `NVDA+Shift+Alt+L`. Wybierz **Zapisz bieżącą listę do ulubionych** i nadaj jej nazwę, np. „ThinkPad do 1000 zł”.
 
-Ten sam skrót działa również przy zamkniętej przeglądarce. Wybierz listę z zapisanych wyników i naciśnij `Enter`, żeby otworzyć ją w domyślnej przeglądarce Windows. W oknie możesz też zmienić nazwę lub usunąć listę. Ulubione są zapisane lokalnie w konfiguracji NVDA.
+Ten sam skrót działa również przy zamkniętej przeglądarce. Wybierz listę z zapisanych wyników i naciśnij `Enter`, żeby otworzyć ją w domyślnej przeglądarce Windows. Ponowne wywołanie skrótu przywraca fokus do otwartego okna. Klawisz `F2` zmienia nazwę zaznaczonej listy, a `Delete` pyta o potwierdzenie jej usunięcia. Ulubione są zapisane lokalnie w konfiguracji NVDA.
 
 Gdy bieżąca lista jest już w ulubionych, okno od razu ją zaznacza. Przycisk zapisu jest dostępny dla nowych list i wraca po usunięciu pozycji z ulubionych.
 
@@ -44,6 +45,6 @@ Na OLX i Vinted przycisk **Przejdź do filtrów na stronie** prowadzi do pozosta
 
 ## Aktualizacje i zgłoszenia
 
-Aktualizacje są pobierane ze [strony Zakupocholika](https://proszczok.pl/zakupocholik/). Aby sprawdzić je ręcznie, wybierz w NVDA **Narzędzia → Zakupocholik → Sprawdź aktualizacje**. Przed pobraniem dodatek pokazuje opis zmian.
+Aktualizacje są pobierane ze [strony Zakupocholika](https://proszczok.pl/zakupocholik/). Aby sprawdzić je ręcznie, wybierz w NVDA **Narzędzia → Zakupocholik → Sprawdź aktualizacje**. Przed pobraniem dodatek pokazuje opis zmian. W **Ustawieniach aktualizacji** możesz zmienić interwał i odczytać czas oraz wynik ostatniego automatycznego sprawdzenia.
 
 Problemy i propozycje możesz przekazać autorowi z menu **Narzędzia → Zakupocholik → Zgłoś błąd lub propozycję**.
