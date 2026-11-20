@@ -15,7 +15,7 @@ Klawisz `4` na OLX i Vinted przechodzi do kolejnego tytułu oferty. Na Allegro L
 
 | Skrót | Działanie |
 | --- | --- |
-| `NVDA+Alt+F` | Otwiera filtry bieżącej listy lub dostępne parametry wystawianego ogłoszenia. |
+| `NVDA+Alt+F` | Otwiera filtry bieżącej listy. |
 | `NVDA+Alt+S` | Przenosi do wyszukiwarki ofert. |
 | `NVDA+Alt+O` | Na liście odczytuje informacje o ofercie. Na otwartej ofercie pokazuje tytuł i opis sprzedającego. Przycisk **Skopiuj** kopiuje oba do schowka. |
 | `NVDA+Alt+B` | Wraca do tytułu ostatnio otwartej oferty na tej samej liście. |
@@ -30,10 +30,6 @@ Na liście OLX, Vinted lub Allegro Lokalnie ustaw filtry i naciśnij `NVDA+Shift
 Ten sam skrót działa również przy zamkniętej przeglądarce. Wybierz listę z zapisanych wyników i naciśnij `Enter`, żeby otworzyć ją w domyślnej przeglądarce Windows. Ponowne wywołanie skrótu przywraca fokus do otwartego okna. Klawisz `F2` zmienia nazwę zaznaczonej listy, a `Delete` pyta o potwierdzenie jej usunięcia. Ulubione są zapisane lokalnie w konfiguracji NVDA.
 
 Gdy bieżąca lista jest już w ulubionych, okno od razu ją zaznacza. Przycisk zapisu jest dostępny dla nowych list i wraca po usunięciu pozycji z ulubionych.
-
-## Wystawianie na Allegro Lokalnie
-
-W kroku **Stan i parametry** naciśnij `NVDA+Alt+F` lub wybierz **Parametry wystawianego ogłoszenia** w menu Zakupocholika. Strzałkami wybierz opcję stanu, Markę albo Model. Enter zaznacza stan lub przekazuje fokus do wybranego pola w trybie formularza NVDA.
 
 ## Ustawianie filtrów
 
