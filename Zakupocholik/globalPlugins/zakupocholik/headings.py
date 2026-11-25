@@ -1,5 +1,6 @@
 from functools import cache
 import re
+from urllib.parse import urlsplit
 
 import browseMode
 from comtypes import COMError
@@ -19,6 +20,8 @@ DESCRIPTION_LEVEL = 2
 DESCRIPTION_CLASS = "u-overflow-hidden"
 VINTED_ACTIONS = frozenset({"Kup teraz", "Zaproponuj cenę", "Zapytaj", "Wyślij wiadomość"})
 VINTED_MEMBER = re.compile(r"^https://(?:www\.)?vinted\.pl/member/[0-9]+(?:[/?#-]|$)")
+OLX_STOREFRONT_HOST = re.compile(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.olx\.pl")
+OLX_STOREFRONT_PATHS = frozenset({"", "/", "/home", "/home/"})
 OLX_PROFILE_PATH = re.compile(r"/(?:d/)?oferty/uzytkownik/([a-zA-Z0-9_-]+)/?")
 VINTED_PROFILE_PATH = re.compile(r"/member/([0-9]+)(?:-[^/]+)?/?")
 VINTED_ITEM_PATH = re.compile(r"/items/([0-9]+)(?:-[^/]+)?/?")
@@ -79,6 +82,19 @@ class _OfferHeading(browseMode.TextInfoQuickNavItem):
         if self.description:
             sequence.append(self.description)
         speech.speak(sequence)
+
+
+def _is_olx_storefront(url):
+    if not isinstance(url, str):
+        return False
+    try:
+        host = urlsplit(url).hostname
+    except ValueError:
+        return False
+    if not host or host in OLX_HOSTS or not OLX_STOREFRONT_HOST.fullmatch(host):
+        return False
+    parts = site_url(url, {host})
+    return parts is not None and parts.path in OLX_STOREFRONT_PATHS
 
 
 def _heading_destination(url, site):
@@ -314,7 +330,34 @@ def _field_text_info(document, owner, field):
 
 @cache
 def _buffer_class(base):
+    class OfferTextInfo(base.TextInfo):
+        def getControlFieldSpeech(
+            self, attrs, ancestorAttrs, fieldType, formatConfig=None, extraDetail=False, reason=None,
+        ):
+            native = super().getControlFieldSpeech(attrs, ancestorAttrs, fieldType, formatConfig, extraDetail, reason)
+            if (reason not in {controlTypes.OutputReason.CARET, controlTypes.OutputReason.SAYALL}
+                    or attrs.get("role") != controlTypes.Role.LINK):
+                return native
+            url = attrs.get("IAccessible::value")
+            if not (_heading_destination(url, "OLX") or _heading_destination(url, "Vinted")):
+                return native
+            data = self.obj._shopping_headings()
+            identifier = attrs.get("controlIdentifier_docHandle"), attrs.get("controlIdentifier_ID")
+            if data is None or identifier not in data[3]:
+                return native
+            # Read the heading along with the original link so Enter and link navigation keep working.
+            field = textInfos.ControlField(
+                role=controlTypes.Role.HEADING,
+                level=LEVEL,
+                _startOfNode=attrs.get("_startOfNode", False),
+                _endOfNode=attrs.get("_endOfNode", False),
+            )
+            heading = super().getControlFieldSpeech(field, ancestorAttrs, fieldType, formatConfig, extraDetail, reason)
+            return heading + native
+
     class OfferBuffer(base):
+        TextInfo = OfferTextInfo
+
         def _activatePosition(self, obj=None, info=None):
             navigation = getattr(self.rootNVDAObject, "_shopping_navigation", None)
             if navigation is not None and self.isReady:
@@ -338,34 +381,46 @@ def _buffer_class(base):
             if navigation is not None:
                 navigation.schedule(self)
 
+        def _shopping_headings(self, *, sections_only=False):
+            if not self.isReady:
+                return None
+            try:
+                url = self.documentURL
+                if site_url(url, OLX_HOSTS) or _is_olx_storefront(url):
+                    site = "OLX"
+                elif site_url(url, VINTED_HOSTS):
+                    site = "Vinted"
+                else:
+                    return None
+                vinted_offer = site == "Vinted" and is_offer_link(url, site)
+                if sections_only and not vinted_offer:
+                    return None
+                # Newly loaded cards can be visible in the buffer before its update callback.
+                cache_key = url, self.makeTextInfo(textInfos.POSITION_ALL)._endOffset
+                cached = getattr(self, "_shopping_heading_cache", None)
+                if cached and cached[0] == cache_key:
+                    return cached
+                try:
+                    sections = _vinted_sections(self) if vinted_offer else ()
+                except (CallCancelled, COMError, LookupError, OSError):
+                    sections = ()
+                occupied = {section.vbufFieldIdentifier for section in sections}
+                entries = _entry_headings(self, site, url, occupied)
+                entry_ids = {tuple(map(str, entry.vbufFieldIdentifier)) for entry in entries}
+                self._shopping_heading_cache = (cache_key, sections, entries, entry_ids)
+                return self._shopping_heading_cache
+            except (CallCancelled, COMError, LookupError, OSError):
+                return None
+
         def _iterNodesByType(self, itemType, direction="next", pos=None):
             native = super()._iterNodesByType(itemType, direction, pos)
             if (itemType not in {"heading", f"heading{DESCRIPTION_LEVEL}", f"heading{LEVEL}"}
                     or direction not in {"next", "previous"}):
                 return native
-            url = self.documentURL
-            if site_url(url, OLX_HOSTS):
-                site = "OLX"
-            elif site_url(url, VINTED_HOSTS):
-                site = "Vinted"
-            else:
+            cached = self._shopping_headings(sections_only=itemType == f"heading{DESCRIPTION_LEVEL}")
+            if cached is None:
                 return native
-            vinted_offer = site == "Vinted" and is_offer_link(url, site)
-            if itemType == f"heading{DESCRIPTION_LEVEL}" and not vinted_offer:
-                return native
-            try:
-                cached = getattr(self, "_shopping_heading_cache", None)
-                if not cached or cached[0] != url:
-                    try:
-                        sections = _vinted_sections(self) if vinted_offer else ()
-                    except (CallCancelled, COMError, LookupError, OSError):
-                        sections = ()
-                    occupied = {section.vbufFieldIdentifier for section in sections}
-                    entries = _entry_headings(self, site, url, occupied)
-                    cached = self._shopping_heading_cache = (url, sections, entries)
-            except (CallCancelled, COMError, LookupError, OSError):
-                return native
-            _, sections, entries = cached
+            _, sections, entries, _ = cached
             if itemType == f"heading{DESCRIPTION_LEVEL}":
                 groups = (sections,)
             elif itemType == f"heading{LEVEL}":

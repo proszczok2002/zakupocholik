@@ -1,1 +1,1 @@
-Heading navigation on OLX and Vinted now covers more listing and user profile cards, including seller listings and recommendations. Press H or 4 in NVDA browse mode.
+Listing headings now work on OLX seller storefronts, including storefronts opened from Watchlist. NVDA announces the heading level for recognized OLX and Vinted listings and profiles when reading with the arrow keys or Say All.
