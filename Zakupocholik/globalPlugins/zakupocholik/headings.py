@@ -20,8 +20,7 @@ DESCRIPTION_LEVEL = 2
 DESCRIPTION_CLASS = "u-overflow-hidden"
 VINTED_ACTIONS = frozenset({"Kup teraz", "Zaproponuj cenę", "Zapytaj", "Wyślij wiadomość"})
 VINTED_MEMBER = re.compile(r"^https://(?:www\.)?vinted\.pl/member/[0-9]+(?:[/?#-]|$)")
-OLX_STOREFRONT_HOST = re.compile(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.olx\.pl")
-OLX_STOREFRONT_PATHS = frozenset({"", "/", "/home", "/home/"})
+OLX_HEADING_HOST = re.compile(r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)?olx\.pl")
 OLX_PROFILE_PATH = re.compile(r"/(?:d/)?oferty/uzytkownik/([a-zA-Z0-9_-]+)/?")
 VINTED_PROFILE_PATH = re.compile(r"/member/([0-9]+)(?:-[^/]+)?/?")
 VINTED_ITEM_PATH = re.compile(r"/items/([0-9]+)(?:-[^/]+)?/?")
@@ -45,6 +44,9 @@ PLACEHOLDER_NAMES = frozenset({
 })
 NAVIGATION_LANDMARKS = frozenset({"navigation", "banner", "contentinfo"})
 NON_TITLE_CONTENT = frozenset({controlTypes.Role.GRAPHIC, controlTypes.Role.BUTTON})
+VINTED_RATING_CLASS = "web_ui__Rating__rating"
+VINTED_PROFILE_CELL = "web_ui__Cell__link"
+VINTED_NO_REVIEWS = re.compile(r"[\s,]*(?:brak opinii|no reviews(?: yet)?)\.?\s*$", re.IGNORECASE)
 
 
 class _OfferHeading(browseMode.TextInfoQuickNavItem):
@@ -84,17 +86,20 @@ class _OfferHeading(browseMode.TextInfoQuickNavItem):
         speech.speak(sequence)
 
 
-def _is_olx_storefront(url):
+def _heading_site(url):
+    if site_url(url, VINTED_HOSTS):
+        return "Vinted"
     if not isinstance(url, str):
-        return False
+        return None
     try:
         host = urlsplit(url).hostname
     except ValueError:
-        return False
-    if not host or host in OLX_HOSTS or not OLX_STOREFRONT_HOST.fullmatch(host):
-        return False
-    parts = site_url(url, {host})
-    return parts is not None and parts.path in OLX_STOREFRONT_PATHS
+        return None
+    # Seller storefronts use their own subdomains. The links in the page
+    # identify cards independently of search, category and pagination routes.
+    if host and OLX_HEADING_HOST.fullmatch(host) and site_url(url, {host}):
+        return "OLX"
+    return None
 
 
 def _heading_destination(url, site):
@@ -128,10 +133,14 @@ def _link_content(parts):
         elif isinstance(part, textInfos.FieldCommand):
             if part.command == "controlStart":
                 fields.append(part.field)
-                suppressed.append(bool(suppressed and suppressed[-1]) or part.field.get("role") in NON_TITLE_CONTENT)
+                classes = (part.field.get("IAccessible2::attribute_class") or "").split()
+                suppressed.append(
+                    bool(suppressed and suppressed[-1]) or part.field.get("role") in NON_TITLE_CONTENT
+                    or VINTED_RATING_CLASS in classes
+                )
             elif part.command == "controlEnd" and suppressed:
                 suppressed.pop()
-    return fields, "".join(plain_text), "".join(text)
+    return fields, plain_text, "".join(text)
 
 
 def _first_title(text, site, kind):
@@ -149,7 +158,7 @@ def _first_title(text, site, kind):
 
 
 def _link_heading(item, site, current):
-    fields, plain, text = _link_content(item.textInfo.getTextWithFields())
+    fields, plain_parts, text = _link_content(item.textInfo.getTextWithFields())
     document_id, node_id = map(str, item.vbufFieldIdentifier)
     link = next((field for field in fields if field.get("controlIdentifier_docHandle") == document_id
                  and field.get("controlIdentifier_ID") == node_id), None)
@@ -163,8 +172,19 @@ def _link_heading(item, site, current):
         return None
     if any(field.get("role") == controlTypes.Role.HEADING for field in fields):
         return destination, 4, None
-    if title := _first_title(plain, site, kind):
-        # Chrome can expose an explicit link name as text even for a photo.
+    classes = (link.get("IAccessible2::attribute_class") or "").split()
+    if site == "Vinted" and kind == "profile" and VINTED_PROFILE_CELL in classes:
+        # The member name precedes the review summary. NVDA can combine the
+        # name and the ungrouped "No reviews" label in one text run.
+        title = next((name for run in plain_parts
+                      if (name := _first_title(VINTED_NO_REVIEWS.sub("", run), site, kind))), None)
+    else:
+        title = _first_title("".join(plain_parts), site, kind)
+    if title:
+        # A separate photo link can contain a badge, such as free delivery.
+        # Prefer the title link while retaining image-only links as a fallback.
+        if site == "OLX" and kind == "offer" and any(field.get("role") == controlTypes.Role.GRAPHIC for field in fields):
+            return destination, 1, title
         priority = 2 if link.get("IAccessible2::attribute_explicit-name") == "true" else 3
         return destination, priority, title
     if kind == "profile" and site == "Vinted":
@@ -386,11 +406,8 @@ def _buffer_class(base):
                 return None
             try:
                 url = self.documentURL
-                if site_url(url, OLX_HOSTS) or _is_olx_storefront(url):
-                    site = "OLX"
-                elif site_url(url, VINTED_HOSTS):
-                    site = "Vinted"
-                else:
+                site = _heading_site(url)
+                if site is None:
                     return None
                 vinted_offer = site == "Vinted" and is_offer_link(url, site)
                 if sections_only and not vinted_offer:

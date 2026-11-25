@@ -1,1 +1,1 @@
-Listing headings now work on OLX seller storefronts, including storefronts opened from Watchlist. NVDA announces the heading level for recognized OLX and Vinted listings and profiles when reading with the arrow keys or Say All.
+Listing headings stay available when searching, changing category or sort order, and paging through OLX seller storefronts, including stores opened from Watchlist. OLX listing headings use the title when cards display delivery badges. Vinted member search headings give the profile name.

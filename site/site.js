@@ -16,7 +16,7 @@ const english = {
     checksum: "Package SHA-256:",
     information: "About the add-on",
     offers: "OLX and Vinted",
-    offerList: "The add-on creates level 4 headings for recognized listing and profile cards, including listings on OLX seller storefronts and in recommendations. NVDA can announce heading levels when reading with the arrow keys.",
+    offerList: "The add-on creates level 4 headings for recognized listing and profile cards, including search results within OLX seller storefronts, recommendations, and Vinted member search. NVDA can announce heading levels when reading with the arrow keys.",
     vintedSections: "On a Vinted listing, jump to photos, price, item details, description, purchase and contact, and seller information.",
     filters: "Allegro Lokalnie filters",
     filterList: "Choose categories, price, location and attributes available for the current results.",
