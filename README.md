@@ -11,7 +11,7 @@ Do działania potrzebujesz NVDA 2026.1 lub nowszej. Pełna pomoc jest też dost�
 
 ## Przeglądanie ofert
 
-Klawisz `4` na OLX i Vinted przechodzi do kolejnego tytułu oferty. Na Allegro Lokalnie użyj `3`. Dodaj `Shift`, żeby wrócić do poprzedniego tytułu. Na otwartej ofercie Vinted `1` prowadzi do tytułu, a `2` do kolejnych sekcji, takich jak cena, opis i dane sprzedającego.
+Na OLX i Vinted użyj `H` do przechodzenia po nagłówkach lub `4`, by przechodzić po nagłówkach poziomu 4. Dodatek udostępnia w nich tytuły rozpoznanych ofert i nazwy profili, także w profilach sprzedawców i w rekomendacjach. Na Allegro Lokalnie użyj `3`. Dodaj `Shift`, żeby wrócić do poprzedniego nagłówka. Na otwartej ofercie Vinted `1` prowadzi do tytułu, a `2` do kolejnych sekcji, takich jak cena, opis i dane sprzedającego.
 
 | Skrót | Działanie |
 | --- | --- |
@@ -48,3 +48,9 @@ Na OLX i Vinted przycisk **Przejdź do filtrów na stronie** prowadzi do pozosta
 Aktualizacje są pobierane ze [strony Zakupocholika](https://proszczok.pl/zakupocholik/). Aby sprawdzić je ręcznie, wybierz w NVDA **Narzędzia → Zakupocholik → Sprawdź aktualizacje**. Przed pobraniem dodatek pokazuje opis zmian. W **Ustawieniach aktualizacji** możesz zmienić interwał i odczytać czas oraz wynik ostatniego automatycznego sprawdzenia.
 
 Problemy i propozycje możesz przekazać autorowi z menu **Narzędzia → Zakupocholik → Zgłoś błąd lub propozycję**.
+
+## Kod źródłowy i budowanie
+
+Kod dodatku jest w katalogu [Zakupocholik](Zakupocholik/), a źródła strony w [site](site/). Wersję odpowiadającą pobranej paczce znajdziesz w tagu wydania od `v1.19`.
+
+W katalogu repozytorium uruchom polecenie `py -3.13 -B tools/release.py`. Paczka instalacyjna i pliki bieżącego wydania pojawią się w `dist`.

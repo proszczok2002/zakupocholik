@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zakupocholik to dodatek do NVDA z nagłówkami ofert OLX i Vinted oraz dostępnymi filtrami Allegro Lokalnie.">
+    <meta name="theme-color" content="#07111f">
+    <title>Zakupocholik dla NVDA</title>
+    <link rel="canonical" href="https://proszczok.pl/zakupocholik/">
+    <link rel="stylesheet" href="style.css?v=%%CSS_VERSION%%">
+    <script src="site.js?v=%%JS_VERSION%%" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="skip">Przejdź do głównej treści</a>
+    <div class="site-shell">
+        <header class="topline">
+            <h1 class="brand">proszczok.pl</h1>
+            <div class="header-actions">
+                <a class="action-link" href="/" data-i18n="home">Strona główna</a>
+                <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+            </div>
+        </header>
+        <main id="main">
+            <section class="hero" aria-labelledby="addon-heading">
+                <div class="hero-copy">
+                    <p class="eyebrow" data-i18n="eyebrow">Dodatek do NVDA</p>
+                    <h2 id="addon-heading">Zakupocholik</h2>
+                    <p class="lead" data-i18n="lead">Przechodź po tytułach i sekcjach ofert za pomocą nagłówków. Wyszukuj na OLX i Vinted oraz ustawiaj filtry Allegro Lokalnie z klawiatury.</p>
+                    <ul class="badge-list" aria-label="Najważniejsze informacje" data-i18n-aria="badgesLabel">
+                        <li>NVDA 2026.1+</li>
+                        <li>Windows</li>
+                        <li>Chrome · Firefox</li>
+                        <li data-i18n="badgeLanguage">Polski interfejs</li>
+                    </ul>
+                </div>
+                <aside class="download-panel" aria-labelledby="download-heading">
+                    <p class="eyebrow" id="download-heading" data-i18n="latest">Pobieranie</p>
+                    <div class="download-actions">
+                        <a class="download-link" href="/github-download.php?project=zakupocholik">
+                            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                            <span data-i18n="download">Pobierz najnowszą wersję z GitHuba</span>
+                        </a>
+                        <a class="action-link" href="https://github.com/proszczok2002/zakupocholik/releases" data-i18n="githubReleases">Wydania na GitHubie</a>
+                    </div>
+                    <p class="file-meta"><a id="download-link" href="%%PACKAGE%%" data-i18n="downloadLocal" download>Pobierz kopię z proszczok.pl</a></p>
+                    <p class="release-version"><span data-i18n="version">Wersja kopii na proszczok.pl:</span> <span id="release-version">%%VERSION%%</span></p>
+                    <p class="release-note" id="release-note">%%NOTES%%</p>
+                    <p class="file-meta"><span data-i18n="size">Rozmiar:</span> <span id="release-size">%%SIZE%%</span></p>
+                    <p class="file-meta"><span data-i18n="checksum">SHA-256 pakietu:</span> <code id="release-checksum">%%SHA256%%</code></p>
+                </aside>
+            </section>
+            <section class="content-grid" aria-label="Informacje o dodatku" data-i18n-aria="information">
+                <article class="info-card">
+                    <div class="card-head">
+                        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+                        <h3 data-i18n="offers">OLX i Vinted</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li data-i18n="offerList">Dodatek tworzy nagłówki poziomu 4 z tytułów rozpoznanych ofert i nazw profili, także w profilach sprzedawców i w rekomendacjach.</li>
+                        <li data-i18n="vintedSections">W ogłoszeniu Vinted przejdziesz do zdjęć, ceny, parametrów, opisu, zakupu i kontaktu oraz informacji o sprzedającym.</li>
+                    </ul>
+                </article>
+                <article class="info-card">
+                    <div class="card-head">
+                        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16l-6 7v5l-4 2v-7z"/></svg></span>
+                        <h3 data-i18n="filters">Filtry Allegro Lokalnie</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li data-i18n="filterList">Wybieraj kategorie, cenę, miejscowość i parametry dostępne na bieżącej liście.</li>
+                        <li data-i18n="filterSearch">Wpisz fragment nazwy, aby szybko znaleźć opcję w wybranej grupie. Zaznaczenia zachowują się podczas wyszukiwania.</li>
+                        <li data-i18n="filterRemove">Usuwaj pojedyncze aktywne filtry lub wyczyść wszystkie.</li>
+                        <li data-i18n="filterFallback">Gdy pobranie się nie uda, dodatek w Chrome i Firefoksie próbuje odczytać formularz ze źródła bieżącej karty. Możesz też wczytać filtry z zapisanej strony HTML.</li>
+                    </ul>
+                </article>
+                <article class="info-card">
+                    <div class="card-head">
+                        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h1m3 0h1m3 0h2m-10 4h10"/></svg></span>
+                        <h3 data-i18n="shortcuts">Najważniejsze skróty</h3>
+                    </div>
+                    <dl class="shortcut-list">
+                        <dt>H / 4</dt><dd data-i18n="shortcutOffers">Tytuły ofert i nazwy profili na OLX i Vinted.</dd>
+                        <dt>1 / 2</dt><dd data-i18n="shortcutSections">Tytuł i sekcje pojedynczej oferty Vinted.</dd>
+                        <dt>NVDA+Alt+F</dt><dd data-i18n="shortcutFilters">Ustaw filtry bieżącej listy na OLX, Vinted i Allegro Lokalnie, w tym stan przedmiotu, gdy lista go udostępnia. Na OLX i Vinted możesz też przejść do pozostałych filtrów na stronie.</dd>
+                        <dt>NVDA+Shift+Alt+L</dt><dd data-i18n="shortcutFavorites">Zapisuj i otwieraj ulubione listy ofert razem z filtrami. Zapisane listy otworzysz też przy zamkniętej przeglądarce. Zmień nazwę klawiszem F2 lub użyj Delete, żeby usunąć zaznaczoną listę po potwierdzeniu.</dd>
+                        <dt>NVDA+Shift+Alt+W</dt><dd data-i18n="shortcutResultList">Przeglądaj wczytane oferty strzałkami i otwórz wybraną ofertę klawiszem Enter.</dd>
+                        <dt>NVDA+Alt+S</dt><dd data-i18n="shortcutSearch">Pole wyszukiwania ofert.</dd>
+                        <dt>NVDA+Alt+O</dt><dd data-i18n="shortcutRead">Na liście odczytuje skrót oferty. W otwartej ofercie OLX, Vinted lub Allegro Lokalnie pokazuje tytuł i opis z przyciskiem Skopiuj.</dd>
+                        <dt>NVDA+Alt+B</dt><dd data-i18n="shortcutBack">Powrót na tytuł ostatnio otwartej oferty na tej samej liście.</dd>
+                        <dt>NVDA+Alt+W</dt><dd data-i18n="shortcutCount">Odczytuje liczbę wyników, gdy portal ją podaje. Dodatek odczytuje ją również po zastosowaniu filtrów.</dd>
+                    </dl>
+                    <p data-i18n="guideMenu">Pełną pomoc otworzysz w NVDA z menu Narzędzia → Zakupocholik → Instrukcja i skróty.</p>
+                </article>
+                <article class="info-card">
+                    <div class="card-head">
+                        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14"/></svg></span>
+                        <h3 data-i18n="install">Instalacja</h3>
+                    </div>
+                    <ol class="steps">
+                        <li data-i18n="installOne">Pobierz i otwórz plik .nvda-addon.</li>
+                        <li data-i18n="installTwo">Potwierdź instalację i uruchom ponownie NVDA.</li>
+                        <li data-i18n="installThree">Polecenia znajdziesz w menu NVDA → Narzędzia → Zakupocholik.</li>
+                    </ol>
+                    <p data-i18n="renumber">Wersja 1.0 rozpoczyna numerację wydań z aktualizatorem. Przy przejściu ze starszego wydania otwórz pobraną paczkę ręcznie.</p>
+                </article>
+                <article class="info-card wide-card">
+                    <div class="card-head">
+                        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                        <h3 data-i18n="updates">Wymagania, prywatność i bezpieczne aktualizacje</h3>
+                    </div>
+                    <p data-i18n="updateSchedule">Zakupocholik sprawdza aktualizacje po uruchomieniu NVDA i domyślnie co 60 minut. W podmenu Zakupocholik możesz zmienić interwał albo uruchomić sprawdzanie ręcznie.</p>
+                    <p data-i18n="updatePrompt">Przy nowej wersji okno pokazuje opis zmian. Po wybraniu „Tak” dodatek pobiera paczkę z proszczok.pl przez HTTPS, sprawdza sumę SHA-256 i przekazuje ją do instalacji w NVDA. Po instalacji NVDA zapyta o restart.</p>
+                    <p data-i18n="feedback">Opcja „Zgłoś błąd lub propozycję” w menu Zakupocholik prosi o nick i opis. Po wybraniu „Wyślij” serwer przekazuje autorowi nick, opis i wersję dodatku.</p>
+                    <p data-i18n="support">W menu znajdziesz również stronę autora oraz wsparcie przez PayPal i Revolut.</p>
+                </article>
+            </section>
+        </main>
+        <footer class="site-footer"><p>© 2024–2026 proszczok.pl. <span data-i18n="rights">Wszelkie prawa zastrzeżone.</span></p><p><a href="/privacy.html" data-i18n="privacy_link">Polityka prywatności</a></p></footer>
+    </div>
+</body>
+</html>

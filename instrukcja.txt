@@ -1,0 +1,175 @@
+ZAKUPOCHOLIK 1.19 — INSTRUKCJA
+
+Zakupocholik to dodatek do NVDA. Działa w Google Chrome i Firefoksie.
+
+Otwórz menu klawiszami NVDA+N i wybierz Narzędzia → Zakupocholik →
+„Instrukcja i skróty”. Pomoc otworzy się w domyślnej przeglądarce
+i działa bez internetu. Na początku instrukcji jest lista skrótów.
+
+1. Instalacja
+
+1. Pobierz plik Zakupocholik-1.19.nvda-addon ze strony
+   https://proszczok.pl/zakupocholik/ lub z wydań na GitHubie
+   https://github.com/proszczok2002/zakupocholik/releases.
+   Otwórz pobrany plik w Eksploratorze.
+2. Potwierdź instalację lub aktualizację w oknie NVDA.
+3. Uruchom NVDA ponownie, gdy o to poprosi.
+
+Jeśli masz już wydanie z aktualizatorem, użyj „Sprawdź aktualizacje”.
+
+2. Szybki dostęp do wyszukiwarki i informacji o ofercie
+
+Na OLX, Vinted i Allegro Lokalnie NVDA+Alt+S przenosi do pola
+wyszukiwania ofert. Wpisz szukany tekst, a potem naciśnij Enter.
+
+Na liście przejdź do tytułu oferty klawiszem 4 na OLX i Vinted lub
+3 na Allegro Lokalnie. Naciśnij NVDA+Alt+O, żeby usłyszeć tytuł,
+cenę i pozostałe informacje dostępne na karcie.
+
+Po otwarciu oferty klawiszem Enter i cofnięciu do tej samej listy
+dodatek próbuje wrócić na jej tytuł. NVDA+Alt+B pozwala przywrócić
+tę pozycję ręcznie na liście.
+
+NVDA+Alt+W odczytuje liczbę wyników, jeśli strona ją podaje.
+
+NVDA+Shift+Alt+W otwiera listę wczytanych ofert na OLX, Vinted lub
+Allegro Lokalnie. Strzałkami odczytasz tytuły i dostępne szczegóły,
+np. cenę. Enter otwiera wybraną ofertę w przeglądarce, a Escape
+zamyka okno. Polecenie jest też w menu jako „Lista wyników wyszukiwania”.
+Dodatek odczytuje ją również po zastosowaniu filtrów na OLX,
+Vinted i Allegro Lokalnie. Portal może podać liczbę przybliżoną,
+np. „Ponad 500 wyników”.
+
+Po otwarciu oferty na Vinted klawiszem Enter użyj 1, żeby przejść do
+tytułu, lub 2, żeby przechodzić po sekcjach. Dodatek oznacza jako
+nagłówki „Zdjęcia”, „Cena”, „Parametry przedmiotu”, „Opis oferty”,
+„Zakup i kontakt” i „Sprzedający”, jeśli te sekcje występują.
+Obok nich są nagłówki strony, na przykład „Wysyłka”. Wszystkie
+znajdziesz pod H oraz w opcji „Nagłówki” na liście NVDA+F7.
+
+Na otwartej ofercie OLX, Vinted lub Allegro Lokalnie naciśnij
+NVDA+Alt+O. Dodatek otworzy okno z tytułem jako nagłówkiem,
+a tuż pod nim znajdziesz opis sprzedającego.
+Przejdź klawiszem Tab do przycisku „Skopiuj” i naciśnij Enter,
+żeby skopiować tytuł i opis do schowka. Okno pozostaje otwarte.
+Esc zamyka okno.
+
+Wszystkie polecenia znajdziesz w menu NVDA+N → Narzędzia → Zakupocholik.
+
+Jeśli w Firefoksie wyniki nie zmieniają się po użyciu przycisku
+„Zastosuj filtry”, sprawdź, czy masz Zakupocholika 1.12 lub nowszego.
+
+Na liście ofert OLX lub Vinted naciśnij NVDA+Alt+F albo wybierz
+„Filtry bieżącej listy” w podmenu Zakupocholik. Na OLX ustaw cenę
+lub zaznacz Spacją „Tylko z przesyłką” i „Tylko ze zdjęciem”,
+gdy są dostępne. Na Vinted ustaw cenę i sortowanie.
+W grupie „Stan przedmiotu” przejdź do listy opcji i zaznacz Spacją
+jeden lub kilka stanów dostępnych dla bieżącej listy. Na Allegro
+Lokalnie grupa ta jest od razu wybrana, jeśli jest dostępna.
+Wybierz „Zastosuj filtry”, żeby wrócić do wyników. Esc anuluje
+edycję. „Wyczyść pola w tym oknie” przygotowuje do usunięcia
+wyłącznie filtrów dostępnych w oknie. Pozostałe opcje znajdziesz
+pod przyciskiem „Przejdź do filtrów na stronie”.
+
+3. OLX i Vinted — przechodzenie po ofertach i profilach
+
+1. Otwórz wyniki wyszukiwania, profil sprzedawcy albo widok
+   z rekomendacjami. Naciśnij Ctrl+Home, żeby przejść na początek strony.
+2. Naciśnij 4, żeby przejść do następnego nagłówka poziomu 4,
+   albo Shift+4, żeby wrócić do poprzedniego. Używaj cyfr z górnego
+   rzędu klawiatury.
+3. Naciśnij Enter na tytule oferty albo nazwie profilu, żeby je otworzyć.
+
+Dodatek dodaje nagłówki poziomu 4 z tytułami rozpoznanych ofert
+i nazwami profili użytkowników. Nagłówki portalu zachowują swój poziom.
+H i Shift+H przechodzą po wszystkich nagłówkach. Żeby zobaczyć listę,
+naciśnij NVDA+F7, wybierz „Nagłówki”, wskaż pozycję i wybierz „Przejdź do”.
+Potem naciśnij Enter w treści strony.
+
+4. Allegro Lokalnie — oferty i filtry
+
+Na listach ofert tytuły są nagłówkami poziomu 3. Używaj 3 i Shift+3.
+
+1. Otwórz wyniki wyszukiwania albo kategorię na allegrolokalnie.pl.
+2. Naciśnij NVDA+N. Wybierz „Narzędzia”, otwórz podmenu
+   „Zakupocholik” i wybierz „Filtry bieżącej listy”.
+   To samo okno otwiera skrót NVDA+Alt+F na liście wyników.
+3. Pole „Kategoria” pokazuje działy pasujące do bieżących wyników.
+   Wybierz dział strzałkami i naciśnij „Przejdź do kategorii”.
+   Po załadowaniu wyników użyj NVDA+Alt+F, by zobaczyć filtry tej kategorii.
+4. Przechodź między polami przez Tab i Shift+Tab. W „Cena od” lub
+   „Cena do” wpisz kwotę. Zależnie od listy są też inne zakresy liczbowe.
+5. W polu „Grupa filtrów” wybierz np. „Stan przedmiotu” lub „Marka”.
+   W polu „Szukaj w opcjach grupy” wpisz fragment nazwy, np. lenov,
+   i naciśnij Enter. Wybieraj pasujące opcje strzałkami i spacją.
+   Do pełnej listy wrócisz po wyczyszczeniu pola wyszukiwania.
+   Zmiana tekstu lub grupy zachowuje wcześniejsze zaznaczenia.
+6. Jeśli chcesz zawęzić wyniki do okolicy, wpisz nazwę miejscowości
+   i wybierz „Szukaj miejscowości”. Następnie wybierz miejscowość
+   i promień. Opcja „Cała Polska” usuwa ograniczenie miejscowości.
+7. Wybierz „Zastosuj filtry”. „Wyczyść filtry” resetuje pola w oknie.
+   Esc zamyka okno bez zastosowania zmian.
+8. Aby usunąć jedno z obecnych ograniczeń, użyj pola „Aktywny filtr”
+   i przycisku „Usuń wybrany filtr”.
+
+Przy przejściowym błędzie połączenia dodatek ponawia pobieranie.
+Gdy widzisz w tytule „ostatnio pobrane dla tej listy”, okno używa
+zestawu pobranego w ciągu ostatnich trzech minut dla tego samego adresu.
+
+W Chrome i Firefoksie po nieudanym pobraniu dodatek próbuje odczytać
+filtry ze źródła bieżącej karty. W Firefoksie może to potrwać
+kilkadziesiąt sekund. Jeśli odczyt zadziała, dodatek wraca do wyników
+i otwiera okno filtrów. Jeśli odczyt się nie udał lub chcesz go
+przerwać, zamknij kartę źródła klawiszami Ctrl+W.
+
+W Chrome i Firefoksie możesz zastąpić pobranie odczytem z pliku.
+Na aktualnej liście wyników naciśnij Ctrl+S i zapisz stronę jako
+„Strona WWW, tylko HTML”. Pozostań na tych samych wynikach.
+Naciśnij NVDA+N, wybierz „Narzędzia”, „Zakupocholik”, a następnie
+„Wczytaj filtry Allegro Lokalnie z pliku HTML” i wybierz zapisany plik.
+
+5. Aktualizacje
+
+W menu NVDA+N → Narzędzia → Zakupocholik wybierz „Sprawdź aktualizacje”.
+„Ustawienia aktualizacji” pozwalają ustawić interwał od 1 do 10 080
+minut lub wyłączyć sprawdzanie automatyczne. Domyślnie dodatek sprawdza
+aktualizacje po uruchomieniu NVDA i co 60 minut.
+Ustawienia pokazują czas i wynik ostatniego automatycznego sprawdzenia
+w bieżącej sesji NVDA, także gdy połączenie się nie powiodło.
+
+Przy nowym wydaniu okno podaje wersję i listę zmian. Wybierz „Tak”,
+żeby pobrać i zainstalować paczkę. Po instalacji NVDA zapyta o restart.
+
+6. Zgłoszenia i wsparcie
+
+W menu NVDA+N → Narzędzia → Zakupocholik wybierz „Zgłoś błąd lub
+propozycję”. Wpisz nick, a w następnym oknie opisz problem lub pomysł.
+Po wybraniu „Wyślij” serwer przekaże autorowi nick, opis i wersję
+dodatku.
+
+„Strona autora” otwiera proszczok.pl. W podmenu „Wesprzyj autora”
+znajdziesz PayPal i Revolut.
+
+7. Gdy skróty nie reagują
+
+Przenieś kursor z paska adresu do treści strony i odśwież ją przez
+Ctrl+R. Skróty H, 4 i 3 działają w trybie przeglądania. Jeśli NVDA
+jest w trybie formularza, przełącz tryb klawiszami NVDA+Spacja.
+
+8. Ulubione listy
+
+1. Otwórz wyniki na OLX, Vinted lub Allegro Lokalnie i ustaw filtry.
+2. Naciśnij NVDA+Shift+Alt+L albo wybierz „Ulubione listy” w menu
+   Narzędzia → Zakupocholik. Wybierz „Zapisz bieżącą listę do
+   ulubionych” i wpisz nazwę, np. „ThinkPad do 1000 zł”.
+3. Później naciśnij ten sam skrót. Wybierz listę strzałkami i
+   naciśnij Enter. Lista z zapisanymi filtrami otworzy się w domyślnej
+   przeglądarce Windows, także gdy jest zamknięta.
+
+Ponowne wywołanie przywraca fokus do otwartego okna. Po zaznaczeniu
+listy F2 otwiera zmianę nazwy, a Delete pyta o potwierdzenie usunięcia.
+Te same polecenia są dostępne pod przyciskami „Zmień nazwę” i „Usuń”.
+Ulubione są zapisane lokalnie w konfiguracji NVDA.
+
+Gdy bieżąca lista jest już w ulubionych, zostanie od razu zaznaczona.
+Przycisk zapisu pojawi się ponownie po usunięciu tej listy z ulubionych.

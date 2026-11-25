@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zakupocholik 1.19 — instrukcja i skróty</title>
+</head>
+<body>
+<main>
+  <h1>Zakupocholik 1.19 — instrukcja i skróty</h1>
+  <p>Dodatek do NVDA dla Chrome i Firefoksa. Ułatwia przeglądanie ofert na OLX, Vinted i Allegro Lokalnie oraz ustawianie filtrów Allegro Lokalnie.</p>
+  <h2>Najważniejsze skróty</h2>
+  <ul>
+    <li><kbd>NVDA+Alt+O</kbd> otwiera okno opisu na pojedynczej ofercie. Na liście odczytuje tytuł i dostępne dane oferty.</li>
+    <li><kbd>NVDA+Alt+F</kbd> otwiera filtry bieżącej listy na OLX, Vinted lub Allegro Lokalnie.</li>
+    <li><kbd>NVDA+Alt+S</kbd> przenosi do pola wyszukiwania na OLX, Vinted i Allegro Lokalnie.</li>
+    <li><kbd>NVDA+Alt+B</kbd> wraca na tytuł ostatnio otwartej oferty z bieżącej listy. Gdy wrócisz do tej samej listy po otwarciu oferty klawiszem <kbd>Enter</kbd>, dodatek próbuje ustawić kursor automatycznie.</li>
+    <li><kbd>NVDA+Alt+W</kbd> odczytuje liczbę wyników OLX, Vinted lub Allegro Lokalnie. Dodatek odczytuje ją też po zastosowaniu filtrów, gdy portal ją podaje. Serwis może podawać wynik przybliżony, np. „ponad 500 wyników”.</li>
+    <li><kbd>NVDA+Shift+Alt+W</kbd> otwiera listę wczytanych ofert na OLX, Vinted lub Allegro Lokalnie. Strzałkami odczytasz tytuły i dostępne szczegóły. <kbd>Enter</kbd> otwiera ofertę, a <kbd>Escape</kbd> zamyka listę.</li>
+    <li><kbd>NVDA+Shift+Alt+L</kbd> otwiera ulubione listy na OLX, Vinted i Allegro Lokalnie, także gdy przeglądarka jest zamknięta.</li>
+  </ul>
+  <p>Żeby wrócić do instrukcji, naciśnij <kbd>NVDA+N</kbd> i wybierz <strong>Narzędzia → Zakupocholik → Instrukcja i skróty</strong>.</p>
+  <h2>Instalacja</h2>
+  <p>Pobierz <code>Zakupocholik-1.19.nvda-addon</code> ze <a href="https://proszczok.pl/zakupocholik/">strony dodatku</a> lub z <a href="https://github.com/proszczok2002/zakupocholik/releases">sekcji wydań na GitHubie</a>. Otwórz plik, potwierdź instalację w NVDA i uruchom NVDA ponownie. Jeśli masz już wydanie z aktualizatorem, użyj polecenia <strong>Sprawdź aktualizacje</strong>.</p>
+  <h2>Ulubione listy</h2>
+  <ol>
+    <li>Otwórz listę wyników na OLX, Vinted lub Allegro Lokalnie i ustaw filtry. Naciśnij <kbd>NVDA+Shift+Alt+L</kbd>.</li>
+    <li>Wybierz <strong>Zapisz bieżącą listę do ulubionych</strong> i wpisz nazwę, np. „ThinkPad do 1000 zł”. Dodatek zapisze adres listy wraz z filtrami.</li>
+    <li>Aby wrócić do wyników, naciśnij ten sam skrót, wybierz zapisaną listę strzałkami i naciśnij <kbd>Enter</kbd>. Windows otworzy ją w domyślnej przeglądarce.</li>
+  </ol>
+  <p>Gdy bieżąca lista jest już w ulubionych, zostanie od razu zaznaczona. Przycisk zapisu pojawi się ponownie po usunięciu tej listy z ulubionych.</p>
+  <p>Ponowne wywołanie przywraca fokus do otwartego okna. Po zaznaczeniu listy <kbd>F2</kbd> otwiera zmianę nazwy, a <kbd>Delete</kbd> pyta o potwierdzenie usunięcia. Te same polecenia są dostępne pod przyciskami <strong>Zmień nazwę</strong> i <strong>Usuń</strong>.</p>
+  <p>Ulubione są zapisane lokalnie w konfiguracji NVDA. Okno znajdziesz też w menu <strong>NVDA → Narzędzia → Zakupocholik → Ulubione listy</strong>.</p>
+  <h2>Aktualizacje</h2>
+  <p>Wybierz <strong>Sprawdź aktualizacje</strong> w menu <strong>NVDA → Narzędzia → Zakupocholik</strong>. <strong>Ustawienia aktualizacji</strong> pozwalają zmienić interwał od 1 do 10 080 minut lub wyłączyć sprawdzanie automatyczne. Domyślnie dodatek sprawdza aktualizacje po uruchomieniu NVDA i co 60 minut.</p>
+  <p>W ustawieniach jest czas i wynik ostatniego automatycznego sprawdzenia w bieżącej sesji NVDA. Pole pokazuje także błąd połączenia, jeśli wystąpił.</p>
+  <p>Jeśli jest nowe wydanie, okno pokazuje opis zmian. Wybierz <strong>Tak</strong>, aby pobrać i zainstalować zweryfikowaną paczkę. NVDA zapyta o ponowne uruchomienie po instalacji.</p>
+  <h2>Zgłoszenia i wsparcie</h2>
+  <p>W menu <strong>NVDA → Narzędzia → Zakupocholik</strong> wybierz <strong>Zgłoś błąd lub propozycję</strong>. Wpisz nick, a w następnym oknie opisz problem lub pomysł. Po wybraniu przycisku <strong>Wyślij</strong> serwer przekaże autorowi nick, opis i wersję dodatku.</p>
+  <p>Pozycja <strong>Strona autora</strong> otwiera proszczok.pl. W podmenu <strong>Wesprzyj autora</strong> znajdziesz PayPal i Revolut.</p>
+  <h2>Nawigacja po ofertach</h2>
+  <p>Na OLX i Vinted dodatek tworzy nagłówki poziomu 4 dla rozpoznanych kart ofert i profili, również w profilach sprzedawców i w rekomendacjach. Nagłówki portalu zachowują swój poziom. W trybie przeglądania użyj <kbd>H</kbd> i <kbd>Shift+H</kbd> do nawigacji po wszystkich nagłówkach lub <kbd>4</kbd> i <kbd>Shift+4</kbd> do przechodzenia po nagłówkach poziomu 4. Tytuły ofert i nazwy profili znajdziesz także w <kbd>NVDA+F7</kbd> w kategorii <strong>Nagłówki</strong>. <kbd>Enter</kbd> w treści strony otwiera wskazaną ofertę lub profil.</p>
+  <h2>Nagłówki na stronie oferty Vinted</h2>
+  <p>W pojedynczej ofercie klawisz <kbd>1</kbd> prowadzi do tytułu, a <kbd>2</kbd> do kolejnych sekcji. Jeśli są obecne, dodatek oznacza jako nagłówki <strong>Zdjęcia</strong>, <strong>Cenę</strong>, <strong>Parametry przedmiotu</strong>, <strong>Opis oferty</strong>, <strong>Zakup i kontakt</strong> i <strong>Sprzedającego</strong>. Użyj <kbd>H</kbd> lub listy <strong>Nagłówki</strong> pod <kbd>NVDA+F7</kbd>, żeby zobaczyć również nagłówki strony, na przykład <strong>Wysyłkę</strong>.</p>
+  <h2>Okno opisu oferty</h2>
+  <p>Na otwartej ofercie OLX, Vinted lub Allegro Lokalnie naciśnij <kbd>NVDA+Alt+O</kbd>. Dodatek otworzy okno z tytułem jako nagłówkiem i opisem sprzedającego bezpośrednio pod nim. Przejdź klawiszem <kbd>Tab</kbd> do przycisku <strong>Skopiuj</strong> i naciśnij <kbd>Enter</kbd>, żeby skopiować tytuł i opis do schowka. Okno pozostaje otwarte. Zamknij je klawiszem <kbd>Esc</kbd>.</p>
+  <h2>Filtry OLX i Vinted</h2>
+  <p>Jeśli w Firefoksie wyniki nie zmieniają się po użyciu przycisku <strong>Zastosuj filtry</strong>, sprawdź, czy masz Zakupocholika 1.12 lub nowszego. Poprawka obejmuje również Allegro Lokalnie.</p>
+  <p>Na liście ofert naciśnij <kbd>NVDA+Alt+F</kbd> albo wybierz <strong>Filtry bieżącej listy</strong> w menu Zakupocholik. Na OLX możesz ustawić cenę i zaznaczyć pola <strong>Tylko z przesyłką</strong> i <strong>Tylko ze zdjęciem</strong>, gdy są dostępne. Na Vinted możesz ustawić cenę i sortowanie. Na obu portalach przejdź do listy opcji w grupie <strong>Stan przedmiotu</strong> i zaznacz <kbd>Spacją</kbd> jeden lub kilka stanów dostępnych dla tej listy.</p>
+  <p>Wybierz <strong>Zastosuj filtry</strong>, żeby otworzyć wyniki w bieżącej karcie. <strong>Wyczyść pola w tym oknie</strong> przygotowuje do usunięcia filtrów ustawianych tutaj. <kbd>Esc</kbd> anuluje edycję. Przycisk <strong>Przejdź do filtrów na stronie</strong> otwiera listę kontrolek, do których można przejść bezpośrednio. Na stronach bez filtrów obsługiwanych w oknie dodatku skrót otwiera tę listę od razu.</p>
+  <h2>Allegro Lokalnie</h2>
+  <p>Gdy bieżąca lista udostępnia filtr stanu, w oknie od razu wybrana jest grupa <strong>Stan przedmiotu</strong>. Przejdź do listy opcji i zaznacz wybrane stany <kbd>Spacją</kbd>.</p>
+  <p>Tytuły w sprawdzonych wynikach Allegro Lokalnie są nagłówkami poziomu 3. Użyj <kbd>3</kbd> lub <kbd>Shift+3</kbd>, żeby nawigować po tym poziomie.</p>
+  <ol>
+    <li>Otwórz wyniki wyszukiwania albo kategorię. Wybierz <strong>Filtry bieżącej listy</strong> w podmenu Zakupocholik albo naciśnij <kbd>NVDA+Alt+F</kbd>. Poczekaj na okno filtrów.</li>
+    <li>Użyj pola <strong>Kategoria</strong>, jeśli chcesz zawęzić wyniki do działu. Wybierz <strong>Przejdź do kategorii</strong> i otwórz filtry ponownie po załadowaniu wyników. Pole <strong>Aktywny filtr</strong> i przycisk <strong>Usuń wybrany filtr</strong> pozwalają usunąć jedno z obecnych ograniczeń.</li>
+    <li>Klawiszem <kbd>Tab</kbd> przechodź między polami. Wybierz <strong>Grupę filtrów</strong>, przejdź do pola <strong>Szukaj w opcjach grupy</strong> i wpisz fragment nazwy, na przykład <em>lenov</em>. <kbd>Enter</kbd> przenosi do pasujących opcji, a <kbd>Spacja</kbd> zmienia zaznaczenie. Możesz wpisać nazwę bez polskich znaków. Zaznaczenia zachowują się przy zmianie wyszukiwania i grupy.</li>
+    <li>Aby znaleźć miejscowość, wpisz nazwę i wybierz <strong>Szukaj miejscowości</strong>. Wybierz miejscowość z wyników oraz promień w kilometrach. Opcja <strong>Cała Polska</strong> usuwa ograniczenie miejscowości.</li>
+    <li>Wybierz <strong>Zastosuj filtry</strong>, żeby otworzyć wyniki w bieżącej karcie. <kbd>Esc</kbd> zamyka okno. Przycisk <strong>Wyczyść filtry</strong> resetuje pola w oknie.</li>
+  </ol>
+  <p>Jeśli serwis na krótko przestanie odpowiadać, dodatek ponowi pobranie przy przejściowym błędzie połączenia. Może również wyświetlić zestaw pobrany w ciągu ostatnich trzech minut dla tego samego adresu. Tytuł okna informuje, kiedy pokazuje te dane.</p>
+  <p>Po nieudanym pobraniu dodatek może w Chrome i Firefoksie otworzyć źródło bieżącej karty i odczytać z niego filtry. W Firefoksie może to potrwać kilkadziesiąt sekund. Po udanym odczycie dodatek zamyka kartę źródła i otwiera okno filtrów. Jeśli odczyt się nie udał albo chcesz go przerwać, zamknij kartę źródła klawiszami <kbd>Ctrl+W</kbd>.</p>
+  <p>W Chrome i Firefoksie możesz wczytać filtry z pliku. Na aktualnej liście wyników naciśnij <kbd>Ctrl+S</kbd>, wybierz typ pliku <strong>Strona WWW, tylko HTML</strong> i zapisz plik. Pozostań na tych samych wynikach. W menu <strong>NVDA → Narzędzia → Zakupocholik</strong> wybierz <strong>Wczytaj filtry Allegro Lokalnie z pliku HTML</strong> i wskaż zapisany plik.</p>
+  <p>Po wywołaniu filtrów dodatek pobiera publiczny formularz Allegro Lokalnie dla bieżącego adresu. Wyszukiwanie miejscowości wysyła wpisaną nazwę do Allegro Lokalnie. Dodatek używa osobnych żądań bez ciasteczek z przeglądarki.</p>
+  <h2>Dokumentacja techniczna</h2>
+  <ul>
+    <li><a href="https://github.com/nvaccess/nvda/blob/release-2026.3.1/projectDocs/dev/developerGuide/developerGuide.md">Przewodnik programisty NVDA 2026.3.1</a></li>
+    <li><a href="https://new.chromium.org/developers/design-documents/accessibility/">Chromium — dokumentacja techniczna dostępności</a></li>
+    <li><a href="https://firefox-source-docs.mozilla.org/accessible/Architecture.html">Firefox — architektura dostępności</a></li>
+  </ul>
+</main>
+</body>
+</html>

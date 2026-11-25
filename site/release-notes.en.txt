@@ -1,0 +1,1 @@
+Heading navigation on OLX and Vinted now covers more listing and user profile cards, including seller listings and recommendations. Press H or 4 in NVDA browse mode.
