@@ -1,4 +1,4 @@
-ZAKUPOCHOLIK 1.21 — INSTRUKCJA
+ZAKUPOCHOLIK 1.22 — INSTRUKCJA
 
 Zakupocholik to dodatek do NVDA. Działa w Google Chrome i Firefoksie.
 
@@ -8,7 +8,7 @@ i działa bez internetu. Na początku instrukcji jest lista skrótów.
 
 1. Instalacja
 
-1. Pobierz plik Zakupocholik-1.21.nvda-addon ze strony
+1. Pobierz plik Zakupocholik-1.22.nvda-addon ze strony
    https://proszczok.pl/zakupocholik/ lub z wydań na GitHubie
    https://github.com/proszczok2002/zakupocholik/releases.
    Otwórz pobrany plik w Eksploratorze.
@@ -80,11 +80,12 @@ pod przyciskiem „Przejdź do filtrów na stronie”.
    rzędu klawiatury.
 3. Naciśnij Enter na tytule oferty albo nazwie profilu, żeby je otworzyć.
 
-Dodatek dodaje nagłówki poziomu 4 z tytułami rozpoznanych ofert
-i nazwami profili. Działa także po wyszukaniu frazy na ministronie
-sprzedawcy OLX otwartej z Obserwowanych oraz w wyszukiwarce
-użytkowników Vinted. NVDA zgłasza poziom nagłówka również przy
-czytaniu strzałkami i w czytaniu ciągłym.
+Na listach OLX i Vinted dodatek dodaje nagłówki poziomu 4 z tytułami
+rozpoznanych ofert, także po wyszukaniu frazy na ministronie OLX.
+Polecane profile na listach są linkami. Nazwy profili są nagłówkami
+w widokach osób, np. w Obserwowanych OLX i wyszukiwarce użytkowników
+Vinted. NVDA zgłasza poziom nagłówka przy czytaniu strzałkami
+i w czytaniu ciągłym.
 H i Shift+H przechodzą po wszystkich nagłówkach. Żeby zobaczyć listę,
 naciśnij NVDA+F7, wybierz „Nagłówki”, wskaż pozycję i wybierz „Przejdź do”.
 Potem naciśnij Enter w treści strony.

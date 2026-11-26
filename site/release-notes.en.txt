@@ -1,1 +1,1 @@
-Listing headings stay available when searching, changing category or sort order, and paging through OLX seller storefronts, including stores opened from Watchlist. OLX listing headings use the title when cards display delivery badges. Vinted member search headings give the profile name.
+The add-on creates headings from listing titles on OLX and Vinted offer lists. Recommended seller profiles are available as links. Profile headings are still available in the OLX watchlist and Vinted member search.

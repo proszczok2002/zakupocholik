@@ -22,7 +22,9 @@ VINTED_ACTIONS = frozenset({"Kup teraz", "Zaproponuj cenę", "Zapytaj", "Wyślij
 VINTED_MEMBER = re.compile(r"^https://(?:www\.)?vinted\.pl/member/[0-9]+(?:[/?#-]|$)")
 OLX_HEADING_HOST = re.compile(r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)?olx\.pl")
 OLX_PROFILE_PATH = re.compile(r"/(?:d/)?oferty/uzytkownik/([a-zA-Z0-9_-]+)/?")
+OLX_WATCHLIST_PATH = re.compile(r"/(?:d/)?obserwowane(?:/|$)")
 VINTED_PROFILE_PATH = re.compile(r"/member/([0-9]+)(?:-[^/]+)?/?")
+VINTED_PROFILE_VIEW_PATH = re.compile(r"/member/(?:general/search|following|followers|[0-9]+(?:-[^/]+)?)(?:/|$)")
 VINTED_ITEM_PATH = re.compile(r"/items/([0-9]+)(?:-[^/]+)?/?")
 VINTED_DETAILS = re.compile(
     r",\s+(?:(?:marka|stan|rozmiar):\s*|(?=\d[\d\s.,]*\s*zł(?:\s*,\s*\d|\s+(?:łącznie|zawiera))))",
@@ -195,9 +197,21 @@ def _link_heading(item, site, current):
     return (destination, 1, title) if title else None
 
 
+def _include_profile_headings(url, site):
+    # Offer feeds can contain links to recommended sellers. Reserve profile
+    # headings for people views and preserve the seller on an OLX offer page.
+    if site == "OLX":
+        parts = site_url(url, OLX_HOSTS)
+        return bool(parts and (OLX_WATCHLIST_PATH.match(parts.path) or is_offer_link(url, site)))
+    return VINTED_PROFILE_VIEW_PATH.match(urlsplit(url).path) is not None
+
+
 def _entry_headings(document, site, url, occupied):
     current = _heading_destination(url, site)
+    include_profiles = _include_profile_headings(url, site)
     paths = ("oferta", "uzytkownik") if site == "OLX" else ("items", "member")
+    if not include_profiles:
+        paths = paths[:1]
     links = document._iterNodesByAttribs({
         "IAccessible::value": [VBufStorage_findMatch_word(path) for path in paths],
     }, nodeType="shopHeadingLink")
@@ -211,6 +225,8 @@ def _entry_headings(document, site, url, occupied):
             continue
         if candidate:
             destination, priority, title = candidate
+            if destination[0] == "profile" and not include_profiles:
+                continue
             if destination not in selected or priority > selected[destination][0]:
                 selected[destination] = (priority, title, link)
     return tuple(sorted(

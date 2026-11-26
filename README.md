@@ -11,7 +11,7 @@ Do działania potrzebujesz NVDA 2026.1 lub nowszej. Pełna pomoc jest też dost�
 
 ## Przeglądanie ofert
 
-Na OLX i Vinted użyj `H` do przechodzenia po nagłówkach lub `4`, by przechodzić po nagłówkach poziomu 4. Dodatek udostępnia w nich tytuły rozpoznanych ofert i nazwy profili, także w wynikach wyszukiwania w ministronach OLX, w rekomendacjach i w wyszukiwarce użytkowników Vinted. NVDA zgłasza poziom nagłówka także przy czytaniu strzałkami i w czytaniu ciągłym. Na Allegro Lokalnie użyj `3`. Dodaj `Shift`, żeby wrócić do poprzedniego nagłówka. Na otwartej ofercie Vinted `1` prowadzi do tytułu, a `2` do kolejnych sekcji, takich jak cena, opis i dane sprzedającego.
+Na OLX i Vinted użyj `H` do przechodzenia po nagłówkach lub `4`, by przechodzić po nagłówkach poziomu 4. Na listach ofert dodatek tworzy nagłówki z tytułów, także w wynikach wyszukiwania na ministronach OLX. Polecane profile na listach są linkami. Nazwy profili są dostępne jako nagłówki w widokach osób, np. w Obserwowanych OLX i wyszukiwarce użytkowników Vinted. NVDA zgłasza poziom nagłówka także przy czytaniu strzałkami i w czytaniu ciągłym. Na Allegro Lokalnie użyj `3`. Dodaj `Shift`, żeby wrócić do poprzedniego nagłówka. Na otwartej ofercie Vinted `1` prowadzi do tytułu, a `2` do kolejnych sekcji, takich jak cena, opis i dane sprzedającego.
 
 | Skrót | Działanie |
 | --- | --- |
