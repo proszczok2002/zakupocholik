@@ -1,1 +1,1 @@
-The add-on creates headings from listing titles on OLX and Vinted offer lists. Recommended seller profiles are available as links. Profile headings are still available in the OLX watchlist and Vinted member search.
+On an OLX listing page, heading navigation stops once at identical seller headings that link to the same profile. Use H, 4, or the NVDA+F7 headings list.

@@ -206,6 +206,29 @@ def _include_profile_headings(url, site):
     return VINTED_PROFILE_VIEW_PATH.match(urlsplit(url).path) is not None
 
 
+def _repeated_olx_seller_heading_ids(headings):
+    seen = set()
+    repeated = set()
+    for heading in headings:
+        try:
+            fields, _, _ = _link_content(heading.textInfo.getTextWithFields())
+            profiles = set()
+            for field in fields:
+                if field.get("role") == controlTypes.Role.LINK:
+                    destination = _heading_destination(field.get("IAccessible::value"), "OLX")
+                    if destination and destination[0] == "profile":
+                        profiles.add(destination[1])
+            if len(profiles) != 1:
+                continue
+            key = profiles.pop(), " ".join(heading.label.split()).casefold()
+        except (CallCancelled, COMError, LookupError, OSError):
+            continue
+        if key in seen:
+            repeated.add(heading.vbufFieldIdentifier)
+        seen.add(key)
+    return repeated
+
+
 def _entry_headings(document, site, url, occupied):
     current = _heading_destination(url, site)
     include_profiles = _include_profile_headings(url, site)
@@ -440,7 +463,11 @@ def _buffer_class(base):
                 occupied = {section.vbufFieldIdentifier for section in sections}
                 entries = _entry_headings(self, site, url, occupied)
                 entry_ids = {tuple(map(str, entry.vbufFieldIdentifier)) for entry in entries}
-                self._shopping_heading_cache = (cache_key, sections, entries, entry_ids)
+                repeated = set()
+                if site == "OLX" and is_offer_link(url, site):
+                    # OLX can render two copies of the same native seller heading.
+                    repeated = _repeated_olx_seller_heading_ids(super()._iterNodesByType(f"heading{LEVEL}"))
+                self._shopping_heading_cache = (cache_key, sections, entries, entry_ids, repeated)
                 return self._shopping_heading_cache
             except (CallCancelled, COMError, LookupError, OSError):
                 return None
@@ -453,7 +480,9 @@ def _buffer_class(base):
             cached = self._shopping_headings(sections_only=itemType == f"heading{DESCRIPTION_LEVEL}")
             if cached is None:
                 return native
-            _, sections, entries, _ = cached
+            _, sections, entries, _, repeated = cached
+            if repeated:
+                native = (heading for heading in native if heading.vbufFieldIdentifier not in repeated)
             if itemType == f"heading{DESCRIPTION_LEVEL}":
                 groups = (sections,)
             elif itemType == f"heading{LEVEL}":

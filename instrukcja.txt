@@ -1,4 +1,4 @@
-ZAKUPOCHOLIK 1.22 — INSTRUKCJA
+ZAKUPOCHOLIK 1.23 — INSTRUKCJA
 
 Zakupocholik to dodatek do NVDA. Działa w Google Chrome i Firefoksie.
 
@@ -8,7 +8,7 @@ i działa bez internetu. Na początku instrukcji jest lista skrótów.
 
 1. Instalacja
 
-1. Pobierz plik Zakupocholik-1.22.nvda-addon ze strony
+1. Pobierz plik Zakupocholik-1.23.nvda-addon ze strony
    https://proszczok.pl/zakupocholik/ lub z wydań na GitHubie
    https://github.com/proszczok2002/zakupocholik/releases.
    Otwórz pobrany plik w Eksploratorze.
@@ -89,6 +89,10 @@ i w czytaniu ciągłym.
 H i Shift+H przechodzą po wszystkich nagłówkach. Żeby zobaczyć listę,
 naciśnij NVDA+F7, wybierz „Nagłówki”, wskaż pozycję i wybierz „Przejdź do”.
 Potem naciśnij Enter w treści strony.
+
+Na otwartej ofercie OLX nawigacja nagłówkami wybiera pierwszy
+z identycznych nagłówków poziomu 4 prowadzących do tego samego
+sprzedawcy. Strzałki pozwalają odczytać oba panele sprzedawcy.
 
 4. Allegro Lokalnie — oferty i filtry
 
